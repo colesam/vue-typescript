@@ -7,6 +7,8 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import { State } from "vuex-class";
+import { PlayerState } from "@/store/players/PlayerState";
 import HelloWorld from "./components/HelloWorld.vue";
 
 @Component({
@@ -14,7 +16,9 @@ import HelloWorld from "./components/HelloWorld.vue";
     HelloWorld
   }
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  @State("players") playerState: any;
+}
 </script>
 
 <style scoped>

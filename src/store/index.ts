@@ -1,11 +1,19 @@
+// See: https://codeburst.io/vuex-and-typescript-3427ba78cfa8 for setup
+
 import Vue from "vue";
-import Vuex from "vuex";
+import Vuex, { StoreOptions } from "vuex";
+import { RootState } from "./RootState";
+import { players } from "./players/index";
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
-  state: {},
-  mutations: {},
-  actions: {},
-  modules: {}
-});
+const store: StoreOptions<RootState> = {
+  state: {
+    version: "1.0.0"
+  },
+  modules: {
+    players
+  }
+};
+
+export default new Vuex.Store<RootState>(store);
