@@ -1,7 +1,7 @@
 <template>
   <div class="App">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <PlayerList :players="players" />
   </div>
 </template>
 
@@ -9,18 +9,18 @@
 import { Component, Vue } from "vue-property-decorator";
 import { State, namespace } from "vuex-class";
 import { Person } from "@/classes/types/Person";
-import HelloWorld from "./components/HelloWorld.vue";
+import PlayerList from "./components/PlayerList.vue";
 
 const playerModule = namespace("player");
 
 @Component({
   components: {
-    HelloWorld
+    PlayerList
   }
 })
 export default class App extends Vue {
   @State("version") version!: string;
-  @playerModule.State("players") players!: Person[];
+  @playerModule.Getter("playerList") players!: Person[];
 }
 </script>
 

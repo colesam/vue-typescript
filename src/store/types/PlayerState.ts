@@ -1,6 +1,6 @@
 import { Person } from "@/classes/types/Person";
 
 export interface PlayerState {
-  players: Person[];
+  players: { [key: number]: Person };
   playersExist: boolean;
 }
