@@ -7,9 +7,11 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import { State } from "vuex-class";
-import { PlayerState } from "@/store/players/PlayerState";
+import { State, namespace } from "vuex-class";
+import { Person } from "@/classes/types/Person";
 import HelloWorld from "./components/HelloWorld.vue";
+
+const playerModule = namespace("player");
 
 @Component({
   components: {
@@ -17,7 +19,8 @@ import HelloWorld from "./components/HelloWorld.vue";
   }
 })
 export default class App extends Vue {
-  @State("players") playerState: any;
+  @State("version") version!: string;
+  @playerModule.State("players") players!: Person[];
 }
 </script>
 

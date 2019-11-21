@@ -2,8 +2,8 @@
 
 import Vue from "vue";
 import Vuex, { StoreOptions } from "vuex";
-import { RootState } from "./RootState";
-import { players } from "./players/index";
+import { RootState } from "./types/RootState";
+import { player } from "./modules/player";
 
 Vue.use(Vuex);
 
@@ -12,7 +12,7 @@ const store: StoreOptions<RootState> = {
     version: "1.0.0"
   },
   modules: {
-    players
+    player
   }
 };
 
